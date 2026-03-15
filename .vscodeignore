@@ -1,0 +1,18 @@
+.vscode/**
+.vscode-test/**
+src/**
+.gitignore
+.yarnrc
+vsc-extension-quickstart.md
+**/tsconfig.json
+**/.eslintrc.json
+**/*.map
+**/*.ts
+
+# Документация для разработки - не нужна в финальном расширении
+demo-screenshot.md
+install-extension.md
+TESTING_SCRIPT.md
+
+# Тестовые файлы
+test-plugin.js

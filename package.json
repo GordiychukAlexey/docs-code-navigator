@@ -1,0 +1,54 @@
+{
+  "name": "docs-code-navigator",
+  "displayName": "Documentation ↔ Code Navigator",
+  "description": "Navigate between code files and their related documentation",
+  "version": "0.1.0",
+  "author": "Alexey Gordiychuk",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GordiychukAlexey/docs-code-navigator.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "documentation",
+    "navigation",
+    "code",
+    "markdown",
+    "links"
+  ],
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "docsCodeNavigator.openRelatedDocs",
+        "title": "Open Related Documentation"
+      },
+      {
+        "command": "docsCodeNavigator.refreshDocLinks",
+        "title": "Refresh Documentation Links"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "build": "npm run compile",
+    "package": "vsce package",
+    "publish": "vsce publish",
+    "clean": "rimraf out",
+    "lint": "eslint src --ext ts",
+    "pretest": "npm run compile",
+    "test": "node test-plugin.js",
+    "test:example": "node test-plugin.js ../plugin-test-example",
+    "validate": "node test-plugin.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.74.0",
+    "@types/node": "16.x",
+    "typescript": "^4.9.4"
+  }
+}
