@@ -2,6 +2,10 @@
 
 Расширение VS Code/Cursor, которое обеспечивает двустороннюю навигацию между исходным кодом и связанной с ним документацией.
 
+<img width="1590" height="324" alt="docs-code-navigator-work-preview" src="https://github.com/user-attachments/assets/5f6b2634-8b9c-4b42-96b2-05463bfdcb2d" />
+
+https://github.com/user-attachments/assets/bfd6a762-0257-455d-98e0-641e126ff823
+
 ### Возможности
 - **Автоматическое определение ссылок**  
   Анализирует markdown‑файлы документации и строит карту ссылок:
