@@ -2,12 +2,12 @@
   "name": "docs-code-navigator",
   "displayName": "Documentation ↔ Code Navigator",
   "description": "Navigate between code files and their related documentation",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Alexey Gordiychuk",
   "publisher": "algok",
   "repository": {
     "type": "git",
-    "url": "https://github.com/GordiychukAlexey/docs-code-navigator.git"
+    "url": "https://github.com/GordiychukAlexey/docs-code-navigator/"
   },
   "license": "MIT",
   "categories": [
