@@ -45,3 +45,6 @@
 ### Требования к формату документации
 
 Общий формат и примеры оформления документации смотри в [`Docs/documentation-format-guide.md`](Docs/documentation-format-guide.md).
+
+### Известные проблемы
+После установки плагина не появляются ссылки. Необходимо дважды выполнить: Ctrl+Shift+P -> `Refresh Documentation Links`
