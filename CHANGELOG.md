@@ -1,25 +1,25 @@
-## Журнал изменений Documentation ↔ Code Navigator
+## Changelog — Documentation ↔ Code Navigator
 
-Все заметные изменения расширения Documentation ↔ Code Navigator фиксируются в этом файле.
+All notable changes to the Documentation ↔ Code Navigator extension are documented in this file.
 
 ### [0.1.0] — 2026‑03‑15
 
-#### Добавлено
-- начальный релиз расширения Documentation ↔ Code Navigator;
-- автоматический поиск ссылок «документация → код» в файлах markdown;
-- интеграция с CodeLens с отображением ссылок «📖 Open: [Название документа]» над файлами исходного кода;
-- поддержка нескольких документов, ссылающихся на один и тот же файл кода;
-- команда контекстного меню **«Open Related Documentation»**;
-- команды в палитре команд редактора;
-- живое обновление ссылок при изменении документации;
-- настройка пути к каталогу документации;
-- настройка отображения CodeLens;
-- настройка паттернов поиска файлов документации.
+#### Added
+- initial release of the Documentation ↔ Code Navigator extension;
+- automatic discovery of “documentation → code” links in markdown files;
+- CodeLens integration with “📖 Open: [Document title]” links above source files;
+- support for multiple documents that reference the same code file;
+- **“Open Related Documentation”** editor context menu command;
+- commands in the editor Command Palette;
+- live update of links when documentation changes;
+- configuration of the documentation folder path;
+- configuration of CodeLens visibility;
+- configuration of documentation file search patterns.
 
-#### Поддерживаемый формат документации
-- файлы Markdown (`.md`) с относительными ссылками на исходные файлы.
+#### Supported documentation format
+- Markdown (`.md`) files with relative links to source files.
 
-#### Основные параметры конфигурации
-- `docsCodeNavigator.docsPath` — путь к каталогу документации (по умолчанию `"Docs"`);
-- `docsCodeNavigator.showCodeLens` — включение/отключение отображения CodeLens (по умолчанию `true`);
-- `docsCodeNavigator.searchPatterns` — паттерны поиска файлов документации (по умолчанию `["**/*.md"]`).
+#### Main configuration options
+- `docsCodeNavigator.docsPath` — path to the documentation folder (default `"Docs"`);
+- `docsCodeNavigator.showCodeLens` — enable/disable CodeLens display (default `true`);
+- `docsCodeNavigator.searchPatterns` — documentation file search patterns (default `["**/*.md"]`).

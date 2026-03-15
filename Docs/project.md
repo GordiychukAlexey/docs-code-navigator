@@ -1,20 +1,20 @@
 ## Documentation ↔ Code Navigator
 
-Расширение VS Code/Cursor для двусторонней навигации между исходным кодом и документацией в формате Markdown.
+VS Code / Cursor extension for two‑way navigation between source code and Markdown documentation.
 
-### Основные возможности
-- **Автоматический поиск ссылок**: анализирует `.md`‑файлы, находит относительные ссылки на файлы кода и строит обратную карту «код → документация».
-- **CodeLens над файлами кода**: показывает ссылки вида «📖 Open: ...» и «📖 Related Documentation (N)» поверх файлов, к которым есть документация.
-- **Быстрая навигация**: команды контекстного меню, кнопка в заголовке редактора и команды палитры для открытия и обновления связанной документации.
-- **Настраиваемость**: выбор папки с документацией, шаблонов поиска и отображения CodeLens через настройки редактора.
+### Key features
+- **Automatic link discovery**: scans `.md` files, finds relative links to code files, and builds a reverse “code → documentation” map.
+- **CodeLens above code files**: shows links like “📖 Open: ...” and “📖 Related Documentation (N)” above files that have related documentation.
+- **Fast navigation**: context menu commands, an editor title button, and Command Palette commands for opening and refreshing related documentation.
+- **Configurable**: choose the documentation folder, search patterns, and CodeLens visibility through editor settings.
 
-### Структура документации
-- **Общий формат документации** описан в файле [`Docs/documentation-format-guide.md`](documentation-format-guide.md).
-- **Руководство по установке расширения** находится в [`Docs/install-extension.md`](install-extension.md).
-- **Общее описание расширения и его возможностей** смотри в [`README.md`](../README.md).
-- **Журнал изменений** ведётся в [`CHANGELOG.md`](../CHANGELOG.md).
+### Documentation structure
+- **General documentation format** is described in [`Docs/documentation-format-guide.md`](documentation-format-guide.md).
+- **Extension installation guide** is in [`Docs/install-extension.md`](install-extension.md).
+- **General description of the extension and its features** is in [`README.md`](../README.md).
+- **Changelog** is maintained in [`CHANGELOG.md`](../CHANGELOG.md).
 
-### Связанные файлы исходного кода
-- [Исходный код расширения](../src/extension.ts) - основная логика построения карты документация ↔ код и CodeLens.
+### Related source files
+- [Extension source code](../src/extension.ts) – core logic for building the documentation ↔ code map and CodeLens.
 
-Документация следует правилам из `.cursor/rules/projectrules-docs.mdc`: все актуальные материалы по функционалу находятся в каталоге `Docs/` и используют относительные ссылки на файлы исходного кода.
+The documentation follows the rules from `.cursor/rules/projectrules-docs.mdc`: all up‑to‑date functional materials live in the `Docs/` folder and use relative links to source code files.

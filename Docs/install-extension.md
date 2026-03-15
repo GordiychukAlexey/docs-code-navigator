@@ -1,90 +1,90 @@
-## Установка расширения Documentation ↔ Code Navigator
+## Installing the Documentation ↔ Code Navigator extension
 
-### Требования
-- VS Code или Cursor;
-- Node.js 16+ (для сборки расширения).
+### Requirements
+- VS Code or Cursor;
+- Node.js 16+ (for building the extension).
 
-### Подготовка окружения
+### Environment setup
 
 ```bash
-# Установите Node.js с официального сайта, если он ещё не установлен
+# Install Node.js from the official website if it is not installed yet
 # https://nodejs.org/
 
-# Установите компилятор TypeScript глобально
+# Install the TypeScript compiler globally
 npm install -g typescript
 
-# Установите vsce для упаковки расширений
+# Install vsce for packaging extensions
 npm install -g @vscode/vsce
 ```
 
-### Компиляция расширения
+### Building the extension
 
 ```bash
-# В каталоге проекта расширения
+# In the extension project directory
 npm install
 npm run compile
 ```
 
-### Упаковка расширения
+### Packaging the extension
 
 ```bash
 vsce package
 ```
 
-После выполнения команды будет создан файл вида `docs-code-navigator-0.1.0.vsix`.
+After this command, a file like `docs-code-navigator-0.1.0.vsix` will be created.
 
-### Установка в VS Code/Cursor
+### Installing into VS Code / Cursor
 
 ```bash
-# Вариант 1: через командную строку (для VsCode и Cursor соответственно)
+# Option 1: via command line (for VS Code and Cursor respectively)
 code --install-extension docs-code-navigator-0.1.0.vsix
 cursor --install-extension docs-code-navigator-0.1.0.vsix
 ```
 
 ```text
-# Вариант 2: через интерфейс
-# 1. Откройте VS Code/Cursor
-# 2. Нажмите Ctrl+Shift+P и выполните команду:
+# Option 2: via the UI
+# 1. Open VS Code / Cursor
+# 2. Press Ctrl+Shift+P and run:
 #    "Extensions: Install from VSIX..."
-# 3. Выберите файл docs-code-navigator-0.1.0.vsix
+# 3. Select the docs-code-navigator-0.1.0.vsix file
 ```
 
-### Проверка работы
+### Verifying it works
 
-1. Откройте тестовый проект (например, Unity‑проект) в VS Code/Cursor.
-2. Убедитесь, что в корне проекта есть папка `Docs/` с корректно оформленными `.md`‑файлами, содержащими относительные ссылки на файлы кода.
-3. Откройте любой файл исходного кода, на который есть ссылки из документации.  
-   В начале файла должна появиться строка CodeLens вида:
+1. Open a test project (for example, a Unity project) in VS Code / Cursor.
+2. Make sure there is a `Docs/` folder in the project root with properly formatted `.md` files that contain relative links to code files.
+3. Open any source file that is referenced from the documentation.  
+   At the top of the file you should see a CodeLens line like:
 
 ```text
-📖 Open: Название документа
+📖 Open: Document title
 ```
 
-4. Нажмите на ссылку — связанный документ должен открыться в режиме предпросмотра.
-5. В контекстном меню файла должны быть доступны команды:
-   - «Open Related Documentation»;
-   - кнопка «Refresh Documentation Links» в заголовке редактора.
+4. Click the link — the related document should open in preview mode.
+5. The file’s context menu should contain:
+   - “Open Related Documentation”;
+   - a “Refresh Documentation Links” button in the editor title area.
 
-### Настройка
+### Configuration
 
-Откройте настройки VS Code/Cursor и найдите блок **Documentation Code Navigator**:
+Open VS Code / Cursor settings and find the **Documentation Code Navigator** section:
 
-- `docsCodeNavigator.docsPath` — путь к каталогу документации (по умолчанию `"Docs"`);
-- `docsCodeNavigator.showCodeLens` — показывать CodeLens‑ссылки (по умолчанию `true`);
-- `docsCodeNavigator.searchPatterns` — паттерны поиска `.md`‑файлов (по умолчанию `["**/*.md"]`).
+- `docsCodeNavigator.docsPath` — path to the documentation folder (default `"Docs"`);
+- `docsCodeNavigator.showCodeLens` — whether to show CodeLens links (default `true`);
+- `docsCodeNavigator.searchPatterns` — search patterns for `.md` files (default `["**/*.md"]`).
 
-### Отладка
+### Debugging
 
-Если расширение не загружается:
-1. Откройте Developer Tools (Help → Toggle Developer Tools).
-2. Проверьте консоль на наличие ошибок.
-3. Убедитесь, что расширение активно в списке установленных расширений.
+If the extension does not load:
+1. Open Developer Tools (Help → Toggle Developer Tools).
+2. Check the console for errors.
+3. Make sure the extension is active in the installed extensions list.
 
-Если ссылки не появляются:
-1. Откройте Command Palette (Ctrl+Shift+P).
-2. Выполните команду `Refresh Documentation Links`. Возможно, дважды.
-3. Проверьте, что в документации используются корректные относительные ссылки вида:
+If links do not appear:
+1. Open the Command Palette (Ctrl+Shift+P).
+2. Run the `Refresh Documentation Links` command (possibly twice).
+3. Make sure the documentation uses correct relative links like:
 
 ```markdown
-- [Исходный код расширения](../src/extension.ts)
+- [Extension source code](../src/extension.ts)
 ```

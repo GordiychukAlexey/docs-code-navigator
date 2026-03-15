@@ -1,37 +1,37 @@
-## Руководство по формату документации
+## Documentation format guide
 
-Этот файл описывает требования к документации, совместимой с расширением Documentation ↔ Code Navigator.
+This file describes the requirements for documentation that is compatible with the Documentation ↔ Code Navigator extension.
 
-### Основные требования
+### Basic requirements
 
-- **Формат файлов**: Markdown (`.md`);
-- **Кодировка**: UTF‑8;
-- **Расположение**: в каталоге документации (по умолчанию `Docs/`).
+- **File format**: Markdown (`.md`);
+- **Encoding**: UTF‑8;
+- **Location**: inside the documentation folder (default `Docs/`).
 
-### Пример корректного файла
+### Example of a valid file
 
 ```markdown
-# Название системы
+# System name
 
-## Обзор
-Краткое описание назначения.
+## Overview
+Short description of the purpose.
 
-## Архитектура
-Описание структуры и основных элементов.
+## Architecture
+Description of the structure and main elements.
 
-## Связанные файлы
-- [Основной компонент](../path/to/main.cs) - основная логика
-- [Вспомогательный класс](../path/to/helper.cs) - утилиты
-- [Конфигурация](../path/to/config.json) - настройки
+## Related files
+- [Main component](../path/to/main.cs) – main logic
+- [Helper class](../path/to/helper.cs) – utilities
+- [Configuration](../path/to/config.json) – settings
 
-## Примеры использования
-Короткие примеры кода и сценариев.
+## Usage examples
+Short code and scenario examples.
 
-## См. также
-Ссылки на связанную документацию.
+## See also
+Links to related documentation.
 ```
 
-### Пример структуры Unity‑проекта
+### Example Unity project structure
 
 ```text
 UnityProject/
@@ -39,19 +39,19 @@ UnityProject/
 │   ├── Scripts/
 │   │   ├── ECS/
 │   │   │   ├── Components/
-│   │   │   │   └── Player.cs          ← Ссылка: ../Assets/Scripts/ECS/Components/Player.cs
+│   │   │   │   └── Player.cs          ← Link: ../Assets/Scripts/ECS/Components/Player.cs
 │   │   │   └── Systems/
-│   │   │       └── Movement.cs        ← Ссылка: ../Assets/Scripts/ECS/Systems/Movement.cs
+│   │   │       └── Movement.cs        ← Link: ../Assets/Scripts/ECS/Systems/Movement.cs
 │   │   └── Utils/
-│   │       └── Helper.cs              ← Ссылка: ../Assets/Scripts/Utils/Helper.cs
+│   │       └── Helper.cs              ← Link: ../Assets/Scripts/Utils/Helper.cs
 └── Docs/
-    ├── player-system.md               ← Содержит ссылки на Player.cs
-    ├── movement-system.md             ← Содержит ссылки на Movement.cs
-    └── utils.md                       ← Содержит ссылки на Helper.cs
+    ├── player-system.md               ← Contains links to Player.cs
+    ├── movement-system.md             ← Contains links to Movement.cs
+    └── utils.md                       ← Contains links to Helper.cs
 ```
 
-Документация должна содержать относительные ссылки на файлы исходного кода. Ссылки оформляются в стандартном markdown‑формате:
+Documentation must contain relative links to source code files. Links are written in standard markdown format:
 
 ```markdown
-[Текст ссылки](../относительный/путь/к/файлу.ext)
+[Link text](../relative/path/to/file.ext)
 ```

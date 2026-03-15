@@ -1,55 +1,55 @@
 ## Documentation ↔ Code Navigator
 
-Расширение VS Code/Cursor, которое обеспечивает двустороннюю навигацию между исходным кодом и связанной с ним документацией.
+VS Code / Cursor extension that provides two‑way navigation between source code and the documentation associated with it.
 
 <img width="1590" height="324" alt="docs-code-navigator-work-preview" src="https://github.com/user-attachments/assets/5f6b2634-8b9c-4b42-96b2-05463bfdcb2d" />
 
 https://github.com/user-attachments/assets/bfd6a762-0257-455d-98e0-641e126ff823
 
-### Возможности
-- **Автоматическое определение ссылок**  
-  Анализирует markdown‑файлы документации и строит карту ссылок:
-  - из документации к исходным файлам;
-  - из исходных файлов к документации.
+### Features
+- **Automatic link detection**  
+  Parses documentation markdown files and builds a link map:
+  - from documentation to source files;
+  - from source files back to documentation.
 
-- **Интеграция с CodeLens**  
-  В начале файла кода отображаются ссылки:
-  - «📖 Open: [Название документа]» — для одиночного документа;
-  - «📖 Related Documentation (N)» — если существует несколько связанных документов.
+- **CodeLens integration**  
+  At the top of code files it shows links:
+  - “📖 Open: [Document title]” — when there is a single related document;
+  - “📖 Related Documentation (N)” — when there are multiple related documents.
 
-- **Быстрая навигация**
-  - пункт контекстного меню редактора: **«Open Related Documentation»**;
-  - кнопка в заголовке редактора: **«Refresh Documentation Links»**;
-  - команды через палитру (Ctrl+Shift+P).
+- **Fast navigation**
+  - editor context menu item: **“Open Related Documentation”**;
+  - editor title button: **“Refresh Documentation Links”**;
+  - commands via the Command Palette (Ctrl+Shift+P).
 
-- **Настройки**
-  - `docsCodeNavigator.docsPath` — путь к каталогу документации (по умолчанию `Docs`);
-  - `docsCodeNavigator.showCodeLens` — включение/отключение CodeLens (по умолчанию `true`);
-  - `docsCodeNavigator.searchPatterns` — паттерны поиска файлов документации (по умолчанию `["**/*.md"]`).
+- **Settings**
+  - `docsCodeNavigator.docsPath` — path to the documentation folder (default `Docs`);
+  - `docsCodeNavigator.showCodeLens` — enable/disable CodeLens (default `true`);
+  - `docsCodeNavigator.searchPatterns` — documentation file search patterns (default `["**/*.md"]`).
 
-### Установка
+### Installation
 
-Подробная инструкция приведена в [`Docs/install-extension.md`](Docs/install-extension.md). Кратко:
-- собрать и упаковать расширение в `.vsix`;
-- установить пакет в VS Code/Cursor через командную строку или интерфейс;
-- убедиться, что в проекте есть папка `Docs/` с корректно оформленными `.md`‑файлами.
+Detailed instructions are in [`Docs/install-extension.md`](Docs/install-extension.md). In short:
+- build and package the extension into a `.vsix`;
+- install the package into VS Code / Cursor via command line or UI;
+- make sure the project contains a `Docs/` folder with properly formatted `.md` files.
 
-### Использование
+### Usage
 
-1. Разместите документацию в каталоге `Docs` (или укажите другой путь в настройках).
-  **Предполагается, что документация будет генерироваться используя подобное Cursor-правило: ['.cursor/rules/projectrules-docs.mdс'](.cursor/rules/projectrules-docs.mdc).**
-2. В документации используйте относительные ссылки на файлы кода в формате:
+1. Place your documentation in the `Docs` folder (or configure another path in settings).  
+   **It is assumed that documentation will be generated using a Cursor rule similar to ['.cursor/rules/projectrules-docs.mdc'](.cursor/rules/projectrules-docs.mdc).**
+2. In the documentation, use relative links to code files in the following format:
 
 ```markdown
 - [Player Component](../Assets/Scripts/ECS/Components/Player.cs)
 ```
 
-3. Откройте файл исходного кода, для которого существуют такие ссылки.
-4. Нажмите на ссылку CodeLens, чтобы открыть связанный документ в режиме предпросмотра.
+3. Open a source code file that has such links from the documentation.
+4. Click the CodeLens link to open the related document in preview mode.
 
-### Требования к формату документации
+### Documentation format requirements
 
-Общий формат и примеры оформления документации смотри в [`Docs/documentation-format-guide.md`](Docs/documentation-format-guide.md).
+The general documentation format and examples are described in [`Docs/documentation-format-guide.md`](Docs/documentation-format-guide.md).
 
-### Известные проблемы
-После установки плагина не появляются ссылки. Необходимо дважды выполнить: Ctrl+Shift+P -> `Refresh Documentation Links`
+### Known issues
+After installing the extension, links may not appear immediately. Run twice: Ctrl+Shift+P → `Refresh Documentation Links`.
