@@ -1,27 +1,28 @@
 ---
 alwaysApply: true
 ---
-- В ходе разработки для упрощения поиска информации агент может обращаться к документации.
-- Агент должен следовать текущему руководству при работе с документацией.
-- После изменения какой-либо части проекта нужно при необходимости обновить документацию.
-## Правила ведения документации:
-- Любая документация по проектному функционалу должна быть размещена в каталоге Docs/.
-- Файлы документации имеют формат .md.
-- В документации должны быть отражено только фактическое состояние механик.
-- Не используй нумерацию без особой необходимости.
-- Не нужно добавлять в документацию численные значения, которые могут быть изменены.
-- Строго запрещено выдумывать факты. Внесённые изменения нужно перепроверять.
-- При изменении документации придерживайся имеющегося формата если нет особых указаний.
-- Краткая документация по основным механикам должна находиться в файле project.md и актуализароваться каждый раз при изменении других файлов документации. Эта документация создаётся в свободной неформальной форме. Если существует конкретный файл с документацией по конкретной механике, указывай на него в виде ссылки типа: [движение игрока](player-movement.md).
-- Основные механики должны быть документированы в отдельных файлах.
-## Документацию основных механик нужно вести в подобном формате:
-Имя файла на английском языке в формате `player-movement.md`.
-Содержимое файла:
-># Заголовок механики
->Краткое описание назначения механики
->## Используемые файлы
->имеются ввиду файлы кодовой базы в виде списка относительных ссылок, например [Assets/Scripts/ECS/Systems/PlayerMovementSystem.cs](../Assets/Scripts/ECS/Systems/PlayerMovementSystem.cs)
->сортируй список файлок в первую очередь по имени, затем по иерархии
->## Описание механики
->описание не должно быть слишком громоздким, но должно быть достаточно ёмким чтобы не смотря код понять как работает механика
->допустимо использование простых и средних по сложности mermaid диаграмм
+- During development, the agent may refer to the documentation to simplify information lookup.
+- The agent must follow the current guide when working with documentation.
+- After changing any part of the project, the documentation should be updated if necessary.
+
+## Documentation Rules:
+- Any documentation related to project functionality must be placed in the `Docs/` directory.
+- Documentation files must use the `.md` format.
+- The documentation must reflect only the actual state of the mechanics.
+- Do not use numbering unless absolutely necessary.
+- Do not add numerical values to the documentation if they may change.
+- It is strictly forbidden to invent facts. Any changes made must be double-checked.
+- When editing documentation, follow the existing format unless instructed otherwise.
+- Brief documentation for the main mechanics must be located in the `project.md` file and updated every time other documentation files are changed. This documentation is written in a free, informal style. If a specific file exists for a particular mechanic, reference it as a link such as: [player movement](player-movement.md).
+- Core mechanics must be documented in separate files.
+## Documentation for core mechanics should follow this format:
+The file name must be in English using the format `player-movement.md`.
+File content:
+># Mechanic Title  
+>Short description of the purpose of the mechanic  
+>## Files Used  
+>This refers to files in the codebase listed as relative links, for example: [Assets/Scripts/ECS/Systems/PlayerMovementSystem.cs](../Assets/Scripts/ECS/Systems/PlayerMovementSystem.cs)  
+>Sort the file list first by name, then by hierarchy.
+>## Mechanic Description  
+>The description should not be too verbose but must be concise and clear enough to understand how the mechanic works without reading the code.  
+>Simple and medium-complexity mermaid diagrams are allowed.
