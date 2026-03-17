@@ -11,6 +11,29 @@ interface DocLink {
 export class DocumentationMapper {
     private docLinks: Map<string, DocLink[]> = new Map();
     private workspaceRoot: string;
+    private readonly sourceExtensions = new Set([
+        '.cs',
+        '.js',
+        '.jsx',
+        '.ts',
+        '.tsx',
+        '.py',
+        '.java',
+        '.kt',
+        '.kts',
+        '.go',
+        '.rs',
+        '.rb',
+        '.php',
+        '.lua',
+        '.swift',
+        '.c',
+        '.cpp',
+        '.h',
+        '.hpp',
+        '.m',
+        '.mm'
+    ]);
 
     constructor(workspaceRoot: string) {
         this.workspaceRoot = workspaceRoot;
@@ -73,9 +96,12 @@ export class DocumentationMapper {
     }
 
     private isSourceFile(filePath: string): boolean {
-        const sourceExtensions = ['.cs', '.js', '.ts', '.tsx', '.jsx', '.cpp', '.h', '.hpp', '.py', '.java'];
         const ext = path.extname(filePath);
-        return sourceExtensions.includes(ext);
+        return this.sourceExtensions.has(ext);
+    }
+
+    public isSupportedSourceDocument(filePath: string): boolean {
+        return this.sourceExtensions.has(path.extname(filePath));
     }
 
     public getRelatedDocs(filePath: string): DocLink[] {
@@ -146,12 +172,41 @@ export function activate(context: vscode.ExtensionContext) {
     documentationMapper = new DocumentationMapper(workspaceRoot);
     codeLensProvider = new DocsCodeLensProvider(documentationMapper);
 
+    let scanInFlight: Promise<void> | null = null;
+    const ensureScanned = async (): Promise<void> => {
+        if (scanInFlight) {
+            return scanInFlight;
+        }
+
+        scanInFlight = documentationMapper.scanDocumentation().finally(() => {
+            scanInFlight = null;
+        });
+
+        return scanInFlight;
+    };
+
     // Регистрируем CodeLens провайдер
     context.subscriptions.push(
         vscode.languages.registerCodeLensProvider(
-            [{ scheme: 'file', language: 'csharp' }, 
-             { scheme: 'file', language: 'typescript' }, 
-             { scheme: 'file', language: 'javascript' }],
+            [
+                { scheme: 'file', language: 'csharp' },
+                { scheme: 'file', language: 'cpp' },
+                { scheme: 'file', language: 'go' },
+                { scheme: 'file', language: 'java' },
+                { scheme: 'file', language: 'javascript' },
+                { scheme: 'file', language: 'javascriptreact' },
+                { scheme: 'file', language: 'kotlin' },
+                { scheme: 'file', language: 'lua' },
+                { scheme: 'file', language: 'php' },
+                { scheme: 'file', language: 'python' },
+                { scheme: 'file', language: 'r' },
+                { scheme: 'file', language: 'ruby' },
+                { scheme: 'file', language: 'rust' },
+                { scheme: 'file', language: 'shellscript' },
+                { scheme: 'file', language: 'swift' },
+                { scheme: 'file', language: 'typescript' },
+                { scheme: 'file', language: 'typescriptreact' }
+            ],
             codeLensProvider
         )
     );
@@ -208,33 +263,39 @@ export function activate(context: vscode.ExtensionContext) {
     // Команда для обновления ссылок на документацию
     context.subscriptions.push(
         vscode.commands.registerCommand('docsCodeNavigator.refreshDocLinks', async () => {
-            await documentationMapper.scanDocumentation();
+            await ensureScanned();
             codeLensProvider.refresh();
             vscode.window.showInformationMessage('Documentation links refreshed.');
         })
     );
 
     // Первоначальное сканирование документации
-    documentationMapper.scanDocumentation().then(() => {
-        codeLensProvider.refresh();
-    });
+    ensureScanned().then(() => codeLensProvider.refresh());
+
+    // Если файл кода открыт до завершения первичного сканирования — обновим CodeLens после скана.
+    context.subscriptions.push(
+        vscode.workspace.onDidOpenTextDocument((doc) => {
+            if (doc.uri.scheme !== 'file') {
+                return;
+            }
+            if (!documentationMapper.isSupportedSourceDocument(doc.fileName)) {
+                return;
+            }
+
+            ensureScanned().then(() => codeLensProvider.refresh());
+        })
+    );
 
     // Автоматическое обновление при изменении файлов документации
     const watcher = vscode.workspace.createFileSystemWatcher('**/Docs/**/*.md');
     watcher.onDidChange(() => {
-        documentationMapper.scanDocumentation().then(() => {
-            codeLensProvider.refresh();
-        });
+        ensureScanned().then(() => codeLensProvider.refresh());
     });
     watcher.onDidCreate(() => {
-        documentationMapper.scanDocumentation().then(() => {
-            codeLensProvider.refresh();
-        });
+        ensureScanned().then(() => codeLensProvider.refresh());
     });
     watcher.onDidDelete(() => {
-        documentationMapper.scanDocumentation().then(() => {
-            codeLensProvider.refresh();
-        });
+        ensureScanned().then(() => codeLensProvider.refresh());
     });
 
     context.subscriptions.push(watcher);

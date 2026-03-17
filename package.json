@@ -2,7 +2,7 @@
   "name": "docs-code-navigator",
   "displayName": "Documentation ↔ Code Navigator",
   "description": "Navigate between code files and their related documentation",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "Alexey Gordiychuk",
   "publisher": "algok",
   "repository": {
@@ -21,8 +21,28 @@
     "links"
   ],
   "engines": {
-    "vscode": "^1.74.0"
+    "vscode": "^1.75.0"
   },
+  "activationEvents": [
+    "onStartupFinished",
+    "onLanguage:csharp",
+    "onLanguage:cpp",
+    "onLanguage:go",
+    "onLanguage:java",
+    "onLanguage:php",
+    "onLanguage:python",
+    "onLanguage:r",
+    "onLanguage:ruby",
+    "onLanguage:rust",
+    "onLanguage:typescript",
+    "onLanguage:javascript",
+    "onLanguage:javascriptreact",
+    "onLanguage:typescriptreact",
+    "onLanguage:kotlin",
+    "onLanguage:lua",
+    "onLanguage:shellscript",
+    "onLanguage:swift"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [

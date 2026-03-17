@@ -82,7 +82,7 @@ If the extension does not load:
 
 If links do not appear:
 1. Open the Command Palette (Ctrl+Shift+P).
-2. Run the `Refresh Documentation Links` command (possibly twice).
+2. Run the `Refresh Documentation Links` command.
 3. Make sure the documentation uses correct relative links like:
 
 ```markdown

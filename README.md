@@ -52,4 +52,4 @@ Detailed instructions are in [`Docs/install-extension.md`](Docs/install-extensio
 The general documentation format and examples are described in [`Docs/documentation-format-guide.md`](Docs/documentation-format-guide.md).
 
 ### Known issues
-After installing the extension, links may not appear immediately. Run twice: Ctrl+Shift+P → `Refresh Documentation Links`.
+If the links do not appear immediately, perform: Ctrl+Shift+P → `Refresh Documentation Links` and check the format of relative links in the documentation.
