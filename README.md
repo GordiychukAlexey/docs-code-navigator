@@ -52,4 +52,4 @@ https://github.com/user-attachments/assets/bfd6a762-0257-455d-98e0-641e126ff823
 Общий формат и примеры оформления документации смотри в [`Docs/documentation-format-guide.md`](Docs/documentation-format-guide.md).
 
 ### Известные проблемы
-После установки плагина не появляются ссылки. Необходимо дважды выполнить: Ctrl+Shift+P -> `Refresh Documentation Links`
+Если ссылки не появляются, выполните: Ctrl+Shift+P → `Refresh Documentation Links` и проверьте формат относительных ссылок в документации.

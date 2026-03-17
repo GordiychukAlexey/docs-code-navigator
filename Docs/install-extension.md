@@ -82,7 +82,7 @@ cursor --install-extension docs-code-navigator-0.1.0.vsix
 
 Если ссылки не появляются:
 1. Откройте Command Palette (Ctrl+Shift+P).
-2. Выполните команду `Refresh Documentation Links`. Возможно, дважды.
+2. Выполните команду `Refresh Documentation Links`.
 3. Проверьте, что в документации используются корректные относительные ссылки вида:
 
 ```markdown
