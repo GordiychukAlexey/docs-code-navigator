@@ -52,7 +52,7 @@ cursor --install-extension docs-code-navigator-0.1.0.vsix
 ### Verifying it works
 
 1. Open a test project (for example, a Unity project) in VS Code / Cursor.
-2. Make sure there is a `Docs/` folder in the project root with properly formatted `.md` files that contain relative links to code files.
+2. Make sure there is a `docs/` folder in the project root with properly formatted `.md` files that contain relative links to code files.
 3. Open any source file that is referenced from the documentation.  
    At the top of the file you should see a CodeLens line like:
 
@@ -69,7 +69,7 @@ cursor --install-extension docs-code-navigator-0.1.0.vsix
 
 Open VS Code / Cursor settings and find the **Documentation Code Navigator** section:
 
-- `docsCodeNavigator.docsPath` — path to the documentation folder (default `"Docs"`);
+- `docsCodeNavigator.docsPath` — path to the documentation folder (default `"docs"`);
 - `docsCodeNavigator.showCodeLens` — whether to show CodeLens links (default `true`);
 - `docsCodeNavigator.searchPatterns` — search patterns for `.md` files (default `["**/*.md"]`).
 

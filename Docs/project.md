@@ -9,12 +9,12 @@ VS Code / Cursor extension for two‑way navigation between source code and Mark
 - **Configurable**: choose the documentation folder, search patterns, and CodeLens visibility through editor settings.
 
 ### Documentation structure
-- **General documentation format** is described in [`Docs/documentation-format-guide.md`](documentation-format-guide.md).
-- **Extension installation guide** is in [`Docs/install-extension.md`](install-extension.md).
+- **General documentation format** is described in [`docs/documentation-format-guide.md`](documentation-format-guide.md).
+- **Extension installation guide** is in [`docs/install-extension.md`](install-extension.md).
 - **General description of the extension and its features** is in [`README.md`](../README.md).
 - **Changelog** is maintained in [`CHANGELOG.md`](../CHANGELOG.md).
 
 ### Related source files
 - [Extension source code](../src/extension.ts) – core logic for building the documentation ↔ code map and CodeLens.
 
-The documentation follows the rules from `.cursor/rules/projectrules-docs.mdc`: all up‑to‑date functional materials live in the `Docs/` folder and use relative links to source code files.
+The documentation follows the rules from `.cursor/rules/projectrules-docs.mdc`: all up‑to‑date functional materials live in the `docs/` folder and use relative links to source code files.

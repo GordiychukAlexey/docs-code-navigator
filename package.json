@@ -2,7 +2,7 @@
   "name": "docs-code-navigator",
   "displayName": "Documentation ↔ Code Navigator",
   "description": "Navigate between code files and their related documentation",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "author": "Alexey Gordiychuk",
   "publisher": "algok",
   "repository": {

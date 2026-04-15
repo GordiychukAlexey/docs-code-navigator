@@ -6,7 +6,7 @@ This file describes the requirements for documentation that is compatible with t
 
 - **File format**: Markdown (`.md`);
 - **Encoding**: UTF‑8;
-- **Location**: inside the documentation folder (default `Docs/`).
+- **Location**: inside the documentation folder (default `docs/`).
 
 ### Example of a valid file
 
@@ -44,14 +44,19 @@ UnityProject/
 │   │   │       └── Movement.cs        ← Link: ../Assets/Scripts/ECS/Systems/Movement.cs
 │   │   └── Utils/
 │   │       └── Helper.cs              ← Link: ../Assets/Scripts/Utils/Helper.cs
-└── Docs/
+└── docs/
     ├── player-system.md               ← Contains links to Player.cs
     ├── movement-system.md             ← Contains links to Movement.cs
     └── utils.md                       ← Contains links to Helper.cs
 ```
 
-Documentation must contain relative links to source code files. Links are written in standard markdown format:
+Documentation must contain markdown links to local project files. Links are written in standard markdown format:
 
 ```markdown
 [Link text](../relative/path/to/file.ext)
 ```
+
+Relative links are resolved from the directory of the current documentation file.
+This means that when a `.md` file is moved into a nested folder, navigation continues to work after updating link paths relative to the new location.
+
+External links are ignored for reverse mapping (`http:`, `https:`, `mailto:`, `#anchor`).

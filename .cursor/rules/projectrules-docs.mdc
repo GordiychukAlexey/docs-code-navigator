@@ -6,7 +6,7 @@ alwaysApply: true
 - After changing any part of the project, the documentation should be updated if necessary.
 
 ## Documentation Rules:
-- Any documentation related to project functionality must be placed in the `Docs/` directory.
+- Any documentation related to project functionality must be placed in the `docs/` directory.
 - Documentation files must use the `.md` format.
 - The documentation must reflect only the actual state of the mechanics.
 - Do not use numbering unless absolutely necessary.
